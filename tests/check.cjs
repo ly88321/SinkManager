@@ -2,7 +2,19 @@ const fs = require('fs');
 const vm = require('vm');
 const assert = require('assert');
 const path = require('path');
-const source = fs.readFileSync(path.join(__dirname, '..', 'SinkManager.js'), 'utf8');
+if (!process.argv[2]) {
+  const { spawnSync } = require('child_process');
+  for (const language of ['en','cn']) {
+    console.log('\nChecking '+language.toUpperCase()+' edition');
+    const result = spawnSync(process.execPath,[__filename,language],{stdio:'inherit'});
+    if (result.status !== 0) process.exit(result.status || 1);
+  }
+  process.exit(0);
+}
+const english = process.argv[2] === 'en';
+const filename = english ? 'SinkManager.js' : 'SinkManager_CN.js';
+const source = fs.readFileSync(path.join(__dirname, '..', filename), 'utf8');
+if (english) assert(!/\p{Script=Han}/u.test(source),'English script contains untranslated Chinese text');
 const AsyncFunction = Object.getPrototypeOf(async function(){}).constructor;
 new AsyncFunction(source);
 const checks = [];
@@ -60,10 +72,10 @@ vm.runInContext(definitions + '\n globalThis.testing = {api, html, configure};',
   assert.throws(()=>normalizeTarget('javascript:alert(1)'));
   assert.throws(()=>normalizeTarget('https://'));
   const counters = plainStats({data:[{visits:1234,visitors:20,referers:4}]});
-  assert(counters.includes('访问次数：1,234') && counters.includes('独立访客：20'));
-  assert.equal(plainStats({data:[{name:'Chrome',count:12}]}),'Chrome：12 次');
-  assert(plainStats({data:[{time:'2026-10-19',visits:9,visitors:3}]}).includes('访问次数：9'));
-  assert.equal(plainStats({data:[]}),'暂无数据');
+  assert(counters.includes(english ? 'Visits: 1,234' : '访问次数：1,234') && counters.includes(english ? 'Unique visitors: 20' : '独立访客：20'));
+  assert.equal(plainStats({data:[{name:'Chrome',count:12}]}),english ? 'Chrome: 12 visits' : 'Chrome：12 次');
+  assert(plainStats({data:[{time:'2026-10-19',visits:9,visitors:3}]}).includes(english ? 'Visits: 9' : '访问次数：9'));
+  assert.equal(plainStats({data:[]}),english ? 'No data' : '暂无数据');
   assert(!/[{}]/.test(counters));
   assert.equal(statsError(new Error('HTTP 400\n{"statusMessage":"Validation Error"}')),'HTTP 400\nValidation Error');
   assert(page.includes('id="url" required type="text"'));
