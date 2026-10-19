@@ -4,7 +4,7 @@
 
 在 iPhone / iPad 上通过 [Scriptable](https://scriptable.app/) 管理自己的 [Sink](https://github.com/ccbikai/Sink) 短链接服务。单文件 JavaScript，无需安装额外依赖。
 
-当前版本：**3.0.5**。
+当前版本：**3.0.6**。中文界面请安装 `SinkManager_CN.js`；英文界面请安装 [SinkManager.js](SinkManager.js)。
 
 ## 功能
 
@@ -23,8 +23,8 @@
 ## 安装和配置
 
 1. 在 iPhone / iPad 安装 Scriptable。
-2. 下载本仓库的 `SinkManager.js`，通过分享菜单导入 Scriptable；也可以新建脚本并粘贴完整文件内容。
-3. 在 Scriptable App 内运行 **SinkManager**。
+2. 下载本仓库的 [SinkManager_CN.js](SinkManager_CN.js)，通过分享菜单导入 Scriptable；也可以新建脚本并粘贴完整文件内容。
+3. 在 Scriptable App 内运行 **SinkManager_CN**。
 4. 点击 **设置**，输入自己的 Sink 网站根地址，例如 `https://your-sink.example`。不要填写 `/dashboard` 或 `/api` 路径。
 5. 输入部署 Sink 时设置的 `NUXT_SITE_TOKEN`，点击 **保存并验证**。可直接粘贴 Token，也可带 `Bearer ` 前缀。
 6. 验证成功后显示链接列表。换网站时需提供对应 Token；同一网站 Token 留空则保留已保存值。
