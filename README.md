@@ -4,7 +4,7 @@
 
 Manage your own [Sink](https://github.com/ccbikai/Sink) URL shortener on iPhone and iPad with [Scriptable](https://scriptable.app/). A single JavaScript file with no additional runtime dependencies.
 
-Current version: **3.0.5**. The app interface is currently in Simplified Chinese; button names in this guide are translated into English.
+Current version: **3.0.6**. The default script provides a fully English interface. A Simplified Chinese edition is available as [SinkManager_CN.js](SinkManager_CN.js).
 
 ## Features
 
@@ -16,7 +16,7 @@ Current version: **3.0.5**. The app interface is currently in Simplified Chinese
 - Automatically add `https://` when the destination URL has no protocol.
 - Expiration date and time picker using the device's local timezone, converted to Unix seconds automatically.
 - Tags, internal notes, link previews, mobile redirects, passwords, and advanced routing options.
-- Readable Chinese analytics: visits, unique visitors, referrers, traffic trends, and rankings by referrer, country or region, device, and browser.
+- Readable analytics: visits, unique visitors, referrers, traffic trends, and rankings by referrer, country or region, device, and browser.
 - HTTP status codes and error details, with the current token redacted from error response bodies.
 - String-only WebView bridge results to avoid unsupported return types and Error 606.
 
