@@ -1,10 +1,10 @@
 # SinkManager
 
-**English** | [简体中文](README_CN.md)
+**English** | [Simplified Chinese](README_CN.md)
 
 Manage your own [Sink](https://github.com/ccbikai/Sink) URL shortener on iPhone and iPad with [Scriptable](https://scriptable.app/). A single JavaScript file with no additional runtime dependencies.
 
-Current version: **3.0.5**. The app interface is currently in Simplified Chinese; this guide includes the corresponding button labels.
+Current version: **3.0.5**. The app interface is currently in Simplified Chinese; button names in this guide are translated into English.
 
 ## Features
 
@@ -25,8 +25,8 @@ Current version: **3.0.5**. The app interface is currently in Simplified Chinese
 1. Install Scriptable on your iPhone or iPad.
 2. Download [SinkManager.js](SinkManager.js) and import it into Scriptable using the share menu, or create a new script and paste the entire file.
 3. Run **SinkManager** inside the Scriptable app.
-4. Tap **设置** (Settings) and enter your Sink site's root URL, for example `https://your-sink.example`. Do not include paths such as `/dashboard` or `/api`.
-5. Enter the `NUXT_SITE_TOKEN` configured for your Sink deployment, then tap **保存并验证** (Save and verify). A `Bearer ` prefix is accepted but optional.
+4. Tap **Settings** and enter your Sink site's root URL, for example `https://your-sink.example`. Do not include paths such as `/dashboard` or `/api`.
+5. Enter the `NUXT_SITE_TOKEN` configured for your Sink deployment, then tap **Save and verify**. A `Bearer ` prefix is accepted but optional.
 6. After successful verification, the link list loads. Each site uses its own token; leave the token blank to keep an existing saved token for that site.
 
 This project contains no personal site, real token, or user data. Configuration entered at runtime is stored only in the device's Keychain; it is not written into the script or uploaded to this repository. When upgrading from an older personal script, enter your site and token again. Legacy Keychain entries are not automatically read or deleted.
@@ -35,9 +35,9 @@ This project contains no personal site, real token, or user data. Configuration 
 
 ### Managing links
 
-Tap **创建链接** (Create link) and enter a destination URL. Leave the slug blank to let the service generate one. Custom slugs support lowercase letters, numbers, and internal hyphens. The slug identifies an existing link and cannot be renamed in the editor.
+Tap **Create link** and enter a destination URL. Leave the slug blank to let the service generate one. Custom slugs support lowercase letters, numbers, and internal hyphens. The slug identifies an existing link and cannot be renamed in the editor.
 
-Search matches slugs, URLs, notes, or tags and returns up to 1,000 results. Narrow your keyword if needed. The normal list shows 50 links per page; tap **加载下一页** (Load next page) to continue. After changing status, sort order, or tag filters, tap **搜索** (Search) or **刷新** (Refresh).
+Search matches slugs, URLs, notes, or tags and returns up to 1,000 results. Narrow your keyword if needed. The normal list shows 50 links per page; tap **Load next page** to continue. After changing status, sort order, or tag filters, tap **Search** or **Refresh**.
 
 ### Expiration
 
@@ -45,11 +45,11 @@ Use the date and time picker to select an expiration time in the device's local 
 
 ### Optional fields
 
-Leave the password blank to keep the existing password, or select **清除原密码** (Clear existing password) to remove it. Empty Apple / Google redirect fields preserve their existing values. Advanced JSON supports `geo`, `cloaking`, `redirectWithQuery`, `proxy`, and `unsafe`; boolean options use `true` or `false`.
+Leave the password blank to keep the existing password, or select **Clear existing password** to remove it. Empty Apple / Google redirect fields preserve their existing values. Advanced JSON supports `geo`, `cloaking`, `redirectWithQuery`, `proxy`, and `unsafe`; boolean options use `true` or `false`.
 
 ### Analytics
 
-Select the last 7, 30, or 90 days, then tap **全站统计** (Site analytics) or **统计** (Analytics) on a link. Trends are grouped by day using the device's IANA timezone. The total site link count is independent of the selected date range. Analytics must be configured in your Sink deployment; **暂无数据** means no data is available.
+Select the last 7, 30, or 90 days, then tap **Site analytics** or **Analytics** on a link. Trends are grouped by day using the device's IANA timezone. The total site link count is independent of the selected date range. Analytics must be configured in your Sink deployment; **No data** indicates that no records are available.
 
 ## API integration
 
